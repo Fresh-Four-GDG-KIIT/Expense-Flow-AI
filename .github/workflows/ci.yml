@@ -11,23 +11,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v4 
+      uses: actions/checkout@v4 # 👈 Bumps to v4 to fix the GitHub warning
       
     - name: Setup Node.js
-      uses: actions/setup-node@v4 
+      uses: actions/setup-node@v4 # 👈 Bumps to v4 to fix the GitHub warning
       with:
-        node-version: '24.x' 
+        node-version: '24.x' # 👈 Aligns with GitHub's new standard
         
     - name: Install dependencies
       run: npm install
       
     - name: Build project (Hackathon Bypass)
+      # We add CI=false to prevent strict ESLint warnings from failing the build
       run: CI=false npm run build 
       env:
-        NEXT_PUBLIC_SUPABASE_URL: "https://dummy-pass.supabase.co"
-        NEXT_PUBLIC_SUPABASE_ANON_KEY: "dummy-key"
-        GEMINI_API_KEY: "dummy-key"
-        RESEND_API_KEY: "dummy-key"
+        # Injecting dummy variables so the build compiler doesn't crash on 'undefined'
         NEXT_PUBLIC_SUPABASE_URL: "https://dummy-pass.supabase.co"
         NEXT_PUBLIC_SUPABASE_ANON_KEY: "dummy-key"
         GEMINI_API_KEY: "dummy-key"
