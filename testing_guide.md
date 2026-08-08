@@ -26,11 +26,11 @@ We have provided a suite of both **Genuine** and **Fraudulent** sample receipts 
 
 1. **Test the Happy Path (Clean Data)**
    * Log in as `Sannwoy_employee`.
-   * Upload the `01_clean_legit.pdf` receipt.
+   * Upload the `Sample genuine receipt.pdf` receipt.
    * Watch the AI instantly extract the merchant, date, and amount without manual data entry.
 
 2. **Test the Intelligent Fraud Matrix (Anomalies)**
-   * While still logged in as `Sannwoy_employee`, upload one of the fraudulent test cases (e.g., `06_temporal_mismatch_only.pdf` or `07_all_flags_combined.pdf`).
+   * While still logged in as `Sannwoy_employee`, upload the fraudulent test case `Sample fake receipt.pdf`.
    * Watch as Gemini 3.6 Flash detects the logical anomalies or visual tampering and automatically intercepts the claim.
 
 3. **Verify the HR Audit Trail**
